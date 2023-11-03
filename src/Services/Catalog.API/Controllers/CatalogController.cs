@@ -1,5 +1,6 @@
 ﻿using Catalog.API.Interfaces.Manager;
 using Catalog.API.Models;
+using CoreApiResponse;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
 
@@ -7,7 +8,7 @@ namespace Catalog.API.Controllers
 {
     [Route("api/[controller]/[action]")]
     [ApiController]
-    public class CatalogController : ControllerBase
+    public class CatalogController : BaseController
     {
         private readonly IProductManager _productManager;
 
@@ -21,7 +22,7 @@ namespace Catalog.API.Controllers
         public IActionResult GetProducts() 
         {
             var products = _productManager.GetAll();
-            return Ok(products);
+            return CustomResult(products);
         }
     }
 }
