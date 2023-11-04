@@ -10,5 +10,10 @@ namespace Catalog.API.Manager
         public ProductManager() : base(new ProductRepository())
         {
         }
+
+        public IEnumerable<Product> GetProductsByCategory(string category)
+        {
+            return GetAll(x => x.Category.ToLower() == category.ToLower());
+        }
     }
 }
