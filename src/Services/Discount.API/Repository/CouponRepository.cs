@@ -3,7 +3,6 @@
 public class CouponRepository : ICouponRepository
 {
     IConfiguration _configuration;
-
     public CouponRepository(IConfiguration configuration)
     {
         _configuration = configuration;
